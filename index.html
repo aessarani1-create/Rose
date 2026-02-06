@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rose Day 🌹</title>
+  <style>
+    body {
+      background: linear-gradient(#ffe6ea, #fff);
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .message {
+      display: none;
+      margin-top: 20px;
+      color: #c9184a;
+      font-size: 18px;
+    }
+    button {
+      background: #ff4d6d;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>🌹 Rose Day Quote 🌹</h2>
+  <p>
+   DEAR RO “A rose doesn’t need words to express love —
+    its beauty says it all.”
+  </p>
+
+  <button onclick="showMessage()">Click for something special 💌</button>
+
+  <div class="message" id="msg">
+    <p>
+      Happy Rose Day My JANU🌹<br><br>
+      This rose is for you,
+      because you make my days softer,
+      brighter, and happier.<br><br>
+      Always ur anku loves you alot💖
+    </p>
+  </div>
+</div>
+
+<script>
+  function showMessage() {
+    document.getElementById("msg").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
