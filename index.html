@@ -1,176 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Propose Day 💍</title>
-
-<style>
-body {
-  margin: 0;
-  height: 100vh;
-  font-family: 'Georgia', serif;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  text-align: center;
+  <meta charset="UTF-8">
+  <title>Propose Day 💍</title>
+  <style> img {
+  animation: fadeIn 2s ease-in-out;
 }
 
-.box {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  max-width: 420px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  z-index: 2;
-}
-
-h1 {
-  color: #d6336c;
-}
-
-.name {
-  font-size: 22px;
-  font-weight: bold;
-  animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-  from { color: #ff4d6d; }
-  to { color: #c9184a; }
-}
-
-button {
-  padding: 12px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#yes {
-  background: #ff4d6d;
-  color: white;
-}
-
-#no {
-  background: #adb5bd;
-  position: absolute;
-}
-
-.heart {
-  position: absolute;
-  color: #ff4d6d;
-  font-size: 20px;
-  animation: float 6s linear infinite;
-}
-
-@keyframes float {
+@keyframes fadeIn {
   from {
-    transform: translateY(100vh);
-    opacity: 1;
+    opacity: 0;
+    transform: scale(0.95);
   }
   to {
-    transform: translateY(-10vh);
-    opacity: 0;
+    opacity: 1;
+    transform: scale(1);
   }
 }
-</style>
-</head>
 
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #ffe6eb, #fff);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      z-index: 2;
+    }
+
+    h1 {
+      color: #e6005c;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin: 15px 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yes {
+      background: #ff4d88;
+      color: white;
+    }
+
+    #no {
+      background: #ddd;
+      position: absolute;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+      color: #ff4d88;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
 <body>
 
-<div class="box" id="main">
-  <h1>Happy Propose Day 💖</h1>
+<!-- PASSWORD SCREEN -->
+<div class="box" id="passwordBox">
+  <h1>🔐 Secret Page</h1>
+  <p>Only one person is allowed here 👀💗</p>
+  <input type="password" id="password" placeholder="Enter password">
+  <br><br>
+  <button onclick="checkPassword()">Enter</button>
+</div>
 
-  <p class="name">Dear Ro Rai💕</p>
+<!-- MAIN CONTENT -->
+<div class="box" id="content" style="display:none;">
+  <h1>Happy Propose Day 💍</h1>
 
   <p>
-    I was going to be cool…<br>
-    but then I remembered you exist 😳<br><br>
-    I get shy, I get nervous,  
-    but I know one thing for sure…
+    I tried being normal…  
+    but then I remembered I’m in love with you 😌💖  
   </p>
 
-  <h2>Will you be mine janu? 💍</h2>
+  <img src="IMG_2475.jpeg" alt="Us">
+
+
+  <p>
+    So here I am… asking you something very serious 👀  
+    <br><br>
+    <b>Will you be mine?</b> 💕  
+    <br>
+    (Also we’re getting married in 2029/2030, no discussion.)
+  </p>
 
   <button id="yes" onclick="yesClicked()">YES 💖</button>
-  <button id="no" onmouseover="moveNo()">NO 🙈</button>
+  <button id="no" onmouseover="moveNo()">NO 😭</button>
 </div>
 
 <script>
-// NO button runs away
-function moveNo() {
-  const no = document.getElementById("no");
-  no.style.left = Math.random() * 80 + "vw";
-  no.style.top = Math.random() * 80 + "vh";
-}
+  function checkPassword() {
+    const pass = document.getElementById("password").value;
+    if (pass === "TIMMY") {
+      document.getElementById("passwordBox").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      startHearts();
+    } else {
+      alert("Wrong password 😏 Try again.");
+    }
+  }
 
-// YES clicked
-function yesClicked() {
-  document.getElementById("main").innerHTML = `
-    <h1>OKAY SO IT’S DECIDED 😭💍</h1>
-    <p>
-      Congratulations, you’re stuck with me babes💖<br><br>
-      We laugh, we fight, we grow,<br>
-      and yes… we HAVE to get married beta jee😌
-    </p>
+  function yesClicked() {
+    document.body.innerHTML = `
+      <div class="box">
+        <h1>YAYYYYY 💍💖</h1>
+        <p>
+          Congratulations 🎉  
+          You just agreed to be mine forever.  
+          <br><br>
+          Wedding loading… 2029/2030 💒  
+          <br>
+          I love you 🥹💗
+        </p>
+      </div>
+    `;
+    startHearts();
+  }
 
-    <h2>Wedding Countdown 💒</h2>
-    <p id="countdown"></p>
+  function moveNo() {
+    const no = document.getElementById("no");
+    no.style.left = Math.random() * 80 + "vw";
+    no.style.top = Math.random() * 80 + "vh";
+  }
 
-    <p>
-      Valentine’s Days, random days,  
-      every day — it’s YOU, only YOU
-    </p>
-  `;
-
-  startCountdown();
-}
-
-// Countdown to wedding (2029)
-function startCountdown() {
-  const weddingDate = new Date("2029-02-14").getTime();
-
-  setInterval(() => {
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
-
-    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-    const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
-
-    document.getElementById("countdown").innerHTML =
-      years + " years & " + days + " days left 💕";
-  }, 1000);
-}
-
-// Floating hearts
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 20 + 15 + "px";
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
-}, 300);
-
-// Valentine fallout if NO somehow clicked
-document.getElementById("no").onclick = function() {
-  document.getElementById("main").innerHTML = `
-    <h1>💔 Valentine Fallout 💔</h1>
-    <p>
-      Wow… okay.<br>
-      I’ll just be here eating chocolate 🍫<br>
-      pretending I’m fine but I miss you I wish you were here😭
-    </p>
-  `;
-};
+  function startHearts() {
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 400);
+  }
 </script>
 
 </body>
