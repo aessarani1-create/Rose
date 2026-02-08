@@ -8,12 +8,15 @@
 body {
   background: linear-gradient(135deg, #3e1f0d, #6b3e26);
   font-family: Georgia, serif;
-  text-align: center;
   color: #fff;
   margin: 0;
   padding: 20px;
+  text-align: center;
   overflow-x: hidden;
 }
+
+.page { display: none; }
+.page.active { display: block; }
 
 .box {
   background: rgba(255,255,255,0.12);
@@ -22,12 +25,8 @@ body {
   max-width: 420px;
   margin: auto;
   box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-  animation: fadeIn 1.2s ease;
+  animation: fadeIn 1s ease;
 }
-
-h1 { font-size: 28px; }
-h2 { font-size: 20px; margin-top: 25px; }
-p { font-size: 16px; line-height: 1.6; }
 
 button {
   background: #ffb6c1;
@@ -40,7 +39,9 @@ button {
   margin: 10px;
 }
 
-button:hover { transform: scale(1.08); }
+button:hover {
+  transform: scale(1.08);
+}
 
 .choco-img {
   width: 220px;
@@ -50,9 +51,7 @@ button:hover { transform: scale(1.08); }
 }
 
 @keyframes float {
-  0% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -63,7 +62,6 @@ button:hover { transform: scale(1.08); }
 .heart {
   position: fixed;
   bottom: -20px;
-  font-size: 20px;
   animation: rise 6s linear infinite;
 }
 
@@ -75,39 +73,75 @@ button:hover { transform: scale(1.08); }
 
 <body>
 
-<div class="box">
-  <h1>🍫 Happy Chocolate Day Ro 🍫</h1>
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <div class="box">
+    <h1>🍫 Happy Chocolate Day Ro 🍫</h1>
 
-  <p>
-    If love had a flavor, it would taste like chocolate  
-    and feel like you 💗
-  </p>
+    <p>
+      If love had a flavor, it would taste like chocolate  
+      and feel like you 💗
+    </p>
 
-  <img src="IMG_0862.jpeg" class="choco-img">
-  <p>Kinder Bueno — soft, sweet, addictive… like you 👀💘</p>
+    <img src="IMG_0862.jpeg" class="choco-img">
+    <p>
+      Kinder Bueno — soft, sweet, addictive  
+      just like your <b>Anku (A-N-K-U)</b> 👀💘
+    </p>
 
-  <img src="IMG_0863.jpeg" class="choco-img">
-  <p>KitKat because you deserve a break… from not being spoiled 😌</p>
+    <img src="IMG_0863.jpeg" class="choco-img">
+    <p>
+      KitKat because you deserve a break…  
+      from NOT being spoiled by me 😌
+    </p>
 
-  <h2>🔐 One more thing…</h2>
-  <button onclick="unlockVoice()">🎧 Open Voice Message</button>
+    <button onclick="goToPage(2)">Next 🍬</button>
+  </div>
+</div>
 
-  <h2>Will you be my Valentine again? 💍</h2>
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <div class="box">
+    <h1>🔐 A Little Secret</h1>
+    <p>This one’s only for you 👀💗</p>
 
-  <button onclick="yesClick()">YES 💖</button>
-  <button id="noBtn" onmouseover="moveNo()">NO 🙄</button>
+    <button onclick="unlockVoice()">Unlock 🎧</button>
+
+    <div id="voiceBox" style="display:none; margin-top:20px;">
+      <audio controls>
+        <source src="New Recording.m4a" type="audio/mp4">
+        Your browser does not support audio.
+      </audio>
+      <p>I meant every word 💞</p>
+    </div>
+
+    <button onclick="goToPage(3)">Next 💌</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <div class="box">
+    <h1>So tell me honestly…</h1>
+    <h2>Will you be my Valentine again? 💍</h2>
+
+    <button onclick="yesClick()">YES 💖</button>
+    <button id="noBtn" onmouseover="moveNo()">NO 🙄</button>
+  </div>
 </div>
 
 <script>
+function goToPage(num) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById("page" + num).classList.add("active");
+}
+
 function unlockVoice() {
   let pass = prompt("Enter the password 💗");
   if (pass === "BMWM5") {
-    window.open(
-      "https://drive.google.com/file/d/1vLzUZwXn03Cf00judBShWVkU2Dq6r_E_/view",
-      "_blank"
-    );
+    document.getElementById("voiceBox").style.display = "block";
   } else {
-    alert("Nope 👀 try again hehe 💕");
+    alert("Nope 👀 try again 💕");
   }
 }
 
@@ -126,7 +160,7 @@ function moveNo() {
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
-  const items = ["🍫","🍩","🍪","🍬"];
+  const items = ["🍫","🍪","🍩","🍬"];
   heart.innerHTML = items[Math.floor(Math.random() * items.length)];
   heart.style.left = Math.random() * 100 + "vw";
   document.body.appendChild(heart);
