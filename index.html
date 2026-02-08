@@ -2,180 +2,156 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Propose Day 💍</title>
-  <style> img {
-  animation: fadeIn 2s ease-in-out;
-}
+  <title>🍫 Chocolate Day 🍫</title>
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
+  <style>
     body {
-      margin: 0;
+      background: linear-gradient(135deg, #3e1f0d, #6b3e26);
       font-family: 'Georgia', serif;
-      background: linear-gradient(to bottom, #ffe6eb, #fff);
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      text-align: center;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
     }
 
     .box {
-      background: white;
-      padding: 25px;
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 25px;
+      padding: 30px;
       max-width: 420px;
-      text-align: center;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-      z-index: 2;
+      margin: auto;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      animation: fadeIn 1.2s ease;
     }
 
     h1 {
-      color: #e6005c;
+      font-size: 28px;
+      margin-bottom: 10px;
     }
 
-    img {
-      width: 100%;
-      border-radius: 15px;
-      margin: 15px 0;
+    h2 {
+      font-size: 20px;
+      margin-top: 25px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 12px 0;
     }
 
     button {
-      padding: 10px 20px;
+      background: #ffb6c1;
+      color: #3e1f0d;
       border: none;
+      padding: 12px 20px;
       border-radius: 25px;
-      font-size: 16px;
+      font-size: 15px;
       cursor: pointer;
       margin: 10px;
+      transition: transform 0.2s, background 0.2s;
     }
 
-    #yes {
-      background: #ff4d88;
-      color: white;
+    button:hover {
+      transform: scale(1.08);
+      background: #ffd1dc;
     }
 
-    #no {
-      background: #ddd;
-      position: absolute;
+    .choco-img {
+      width: 220px;
+      border-radius: 20px;
+      margin: 15px 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      animation: float 3s ease-in-out infinite;
     }
 
-    input {
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      margin-top: 10px;
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .heart {
       position: fixed;
-      bottom: -10px;
+      bottom: -20px;
       font-size: 20px;
-      animation: float 6s linear infinite;
-      color: #ff4d88;
+      animation: rise 6s linear infinite;
+      opacity: 0.7;
     }
 
-    @keyframes float {
-      from {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-100vh);
-        opacity: 0;
-      }
+    @keyframes rise {
+      from { transform: translateY(0); opacity: 0.8; }
+      to { transform: translateY(-110vh); opacity: 0; }
     }
   </style>
 </head>
+
 <body>
 
-<!-- PASSWORD SCREEN -->
-<div class="box" id="passwordBox">
-  <h1>🔐 Secret Page</h1>
-  <p>Only one person is allowed here 👀💗</p>
-  <input type="password" id="password" placeholder="Enter password">
-  <br><br>
-  <button onclick="checkPassword()">Enter</button>
-</div>
+  <div class="box">
+    <h1>🍫 Happy Chocolate Day Ro 🍫</h1>
+    <p>
+      If love had a flavor, it would taste like chocolate  
+      and feel like you 💗
+    </p>
 
-<!-- MAIN CONTENT -->
-<div class="box" id="content" style="display:none;">
-  <h1>Happy Propose Day 💍</h1>
+    <img src="IMG_0862.jpeg" class="choco-img" alt="Kinder Bueno">
+    <p>Kinder Bueno — soft, sweet, addictive… sounds familiar 👀💘</p>
 
-  <p>
-    I tried being normal…  
-    but then I remembered I’m in love with you 😌💖  
-  </p>
+    <img src="IMG_0863.jpeg" class="choco-img" alt="KitKat">
+    <p>KitKat because you deserve a break…  
+       from NOT being spoiled by me 😌</p>
 
-  <img src="IMG_2475.jpeg" alt="Us">
+    <h2>🔐 One last thing…</h2>
+    <p>There’s something you can only unlock with a secret 👀</p>
+    <button onclick="unlockVoice()">🎧 Open Voice Message</button>
 
+    <h2>So tell me honestly…</h2>
+    <h1>Will you be my Valentine again? 💍</h1>
 
-  <p>
-    So here I am… asking you something very serious 👀  
-    <br><br>
-    <b>Will you be mine?</b> 💕  
-    <br>
-    (Also we’re getting married in 2029/2030, no discussion.)
-  </p>
+    <button onclick="yesClick()">YES 💖</button>
+    <button id="noBtn" onmouseover="moveNo()">NO 🙄</button>
+  </div>
 
-  <button id="yes" onclick="yesClicked()">YES 💖</button>
-  <button id="no" onmouseover="moveNo()">NO 😭</button>
-</div>
-
-<script>
-  function checkPassword() {
-    const pass = document.getElementById("password").value;
-    if (pass === "TIMMY") {
-      document.getElementById("passwordBox").style.display = "none";
-      document.getElementById("content").style.display = "block";
-      startHearts();
-    } else {
-      alert("Wrong password 😏 Try again.");
+  <script>
+    function unlockVoice() {
+      let pass = prompt("Enter the password 💗");
+      if (pass === "BMWM5") {
+        window.open(https://drive.google.com/file/d/1vLzUZwXn03Cf00judBShWVkU2Dq6r_E_/view?usp=drivesdk);
+      } else {
+        alert("Hmm nope 👀 but I like watching you try again 💕");
+      }
     }
-  }
 
-  function yesClicked() {
-    document.body.innerHTML = `
-      <div class="box">
-        <h1>YAYYYYY 💍💖</h1>
-        <p>
-          Congratulations 🎉  
-          You just agreed to be mine forever.  
-          <br><br>
-          Wedding loading… 2029/2030 💒  
-          <br>
-          I love you 🥹💗
-        </p>
-      </div>
-    `;
-    startHearts();
-  }
+    function yesClick() {
+      alert("Correct answer 😌💍 Wedding confirmed.");
+    }
 
-  function moveNo() {
-    const no = document.getElementById("no");
-    no.style.left = Math.random() * 80 + "vw";
-    no.style.top = Math.random() * 80 + "vh";
-  }
+    function moveNo() {
+      const btn = document.getElementById("noBtn");
+      btn.style.position = "absolute";
+      btn.style.left = Math.random() * 70 + "vw";
+      btn.style.top = Math.random() * 70 + "vh";
+    }
 
-  function startHearts() {
+    // Floating hearts
     setInterval(() => {
       const heart = document.createElement("div");
       heart.className = "heart";
-      heart.innerHTML = "💖";
+      const chocolates = ["🍫","🍬","🍩","🍪"];
+heart.innerHTML = chocolates[Math.floor(Math.random() * chocolates.length)];
       heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 10 + 15 + "px";
       document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 6000);
-    }, 400);
-  }
-</script>
+    }, 500);
+  </script>
 
 </body>
 </html>
