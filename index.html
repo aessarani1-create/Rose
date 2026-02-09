@@ -1,172 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>🍫 Chocolate Day 🍫</title>
+  <meta charset="UTF-8">
+  <title>The Teddy That’s Only Yours 🧸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  background: linear-gradient(135deg, #3e1f0d, #6b3e26);
-  font-family: Georgia, serif;
-  color: #fff;
-  margin: 0;
-  padding: 20px;
-  text-align: center;
-  overflow-x: hidden;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+      background: linear-gradient(to bottom, #ffd6e8, #fff);
+      text-align: center;
+      overflow: hidden;
+    }
 
-.page { display: none; }
-.page.active { display: block; }
+    h1 {
+      margin-top: 30px;
+      color: #d63384;
+    }
 
-.box {
-  background: rgba(255,255,255,0.12);
-  border-radius: 25px;
-  padding: 30px;
-  max-width: 420px;
-  margin: auto;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-  animation: fadeIn 1s ease;
-}
+    p {
+      color: #5a2a5e;
+      font-size: 18px;
+      padding: 0 20px;
+    }
 
-button {
-  background: #ffb6c1;
-  color: #3e1f0d;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 25px;
-  font-size: 15px;
-  cursor: pointer;
-  margin: 10px;
-}
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      font-size: 22px;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+    }
 
-button:hover {
-  transform: scale(1.08);
-}
+    @keyframes float {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-10vh); }
+    }
 
-.choco-img {
-  width: 220px;
-  border-radius: 20px;
-  margin: 15px 0;
-  animation: float 3s ease-in-out infinite;
-}
+    /* Teddy animation */
+    .teddy {
+      font-size: 130px;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      margin-top: 40px;
+    }
 
-@keyframes float {
-  50% { transform: translateY(-8px); }
-}
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    #passwordBox, #secret {
+      display: none;
+      margin-top: 25px;
+    }
 
-.heart {
-  position: fixed;
-  bottom: -20px;
-  animation: rise 6s linear infinite;
-}
+    input {
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #d63384;
+      font-size: 16px;
+      text-align: center;
+    }
 
-@keyframes rise {
-  to { transform: translateY(-110vh); opacity: 0; }
-}
-</style>
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: #d63384;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: 6px;
+    }
+
+    img {
+      width: 260px;
+      margin-top: 20px;
+      border-radius: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #4b164c;
+      padding: 0 25px;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
-<div class="page active" id="page1">
-  <div class="box">
-    <h1>🍫 Happy Chocolate Day Ro 🍫</h1>
+  <h1>🧸 The Teddy That’s Only Yours , Only My Ro Rai's🧸</h1>
+  <p>A little teddy… holding something big inside 💗</p>
 
-    <p>
-      If love had a flavor, it would taste like chocolate  
-      and feel like you 💗
-    </p>
+  <div class="teddy" onclick="showPassword()">🧸</div>
+  <p>Tap the teddy gently…</p>
 
-    <img src="IMG_0862.jpeg" class="choco-img">
-    <p>
-      Kinder Bueno — soft, sweet, addictive  
-      just like your <b>Anku (A-N-K-U)</b> 👀💘
-    </p>
-
-    <img src="IMG_0863.jpeg" class="choco-img">
-    <p>
-      KitKat because you deserve a break…  
-      from NOT being spoiled by me 😌
-    </p>
-
-    <button onclick="goToPage(2)">Next 🍬</button>
+  <div id="passwordBox">
+    <p>🔒 The teddy is shy… it needs a password</p>
+    <input type="password" id="password" placeholder="password">
+    <button onclick="checkPassword()">Open</button>
   </div>
-</div>
 
-<!-- PAGE 2 -->
-<div class="page" id="page2">
-  <div class="box">
-    <h1>🔐 A Little Secret</h1>
-    <p>This one’s only for you 👀💗</p>
+  <div id="secret">
+    <img src="IMG_0893.jpeg" alt="Labubu Teddy">
 
-    <button onclick="unlockVoice()">Unlock 🎧</button>
-
-    <div id="voiceBox" style="display:none; margin-top:20px;">
-      <audio controls>
-        <source src="New Recording.m4a" type="audio/mp4">
-        Your browser does not support audio.
-      </audio>
-      <p>I meant every word 💞</p>
+    <div class="message">
+      <p>
+        This was my first teddy from you 🧸<br><br>
+        You gave it to me, and it instantly became more than just a teddy.  
+        Teddy Day is today, but this teddy lives in my heart since the day you gave me my ro.<br><br>
+        It feels soft, warm, and comforting —  
+        just like the feeling you gave me when you gifted it.<br><br>
+        I miss you alot seriously watching other couples together its hard to live without you but bass wait hai karti rahungi poori life🥺.  
+        And I’ll always be grateful for this little piece of love , always remember janu that ur anku loves you and will always love you forever more and more than anyone else.💗
+      </p>
     </div>
-
-    <button onclick="goToPage(3)">Next 💌</button>
   </div>
-</div>
 
-<!-- PAGE 3 -->
-<div class="page" id="page3">
-  <div class="box">
-    <h1>So tell me honestly…</h1>
-    <h2>Will you be my Valentine again? 💍</h2>
+  <script>
+    function showPassword() {
+      document.getElementById("passwordBox").style.display = "block";
+    }
 
-    <button onclick="yesClick()">YES 💖</button>
-    <button id="noBtn" onmouseover="moveNo()">NO 🙄</button>
-  </div>
-</div>
+    function checkPassword() {
+      const pass = document.getElementById("password").value.toLowerCase();
+      if (pass === "labubu") {
+        document.getElementById("passwordBox").style.display = "none";
+        document.getElementById("secret").style.display = "block";
+      } else {
+        alert("That’s not it… try again 🧸");
+      }
+    }
 
-<script>
-function goToPage(num) {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.getElementById("page" + num).classList.add("active");
-}
+    /* Floating hearts generator */
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
 
-function unlockVoice() {
-  let pass = prompt("Enter the password 💗");
-  if (pass === "BMWM5") {
-    document.getElementById("voiceBox").style.display = "block";
-  } else {
-    alert("Nope 👀 try again 💕");
-  }
-}
-
-function yesClick() {
-  alert("Correct answer 😌💍 Wedding confirmed.");
-}
-
-function moveNo() {
-  const btn = document.getElementById("noBtn");
-  btn.style.position = "absolute";
-  btn.style.left = Math.random() * 70 + "vw";
-  btn.style.top = Math.random() * 70 + "vh";
-}
-
-// floating chocolates
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  const items = ["🍫","🍪","🍩","🍬"];
-  heart.innerHTML = items[Math.floor(Math.random() * items.length)];
-  heart.style.left = Math.random() * 100 + "vw";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}, 500);
-</script>
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }, 280);
+  </script>
 
 </body>
 </html>
