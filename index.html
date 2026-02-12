@@ -2,186 +2,186 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>The Teddy That’s Only Yours 🧸</title>
+<title>Kiss Day 💋</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', cursive;
-    background: linear-gradient(to bottom, #5a0f1b, #8b1e3f, #f7d6df);
-    color: #fff;
-    text-align: center;
-    overflow-x: hidden;
-  }
+body{
+  margin:0;
+  font-family:'Quicksand',sans-serif;
+  background:linear-gradient(to bottom,#4b0d1c,#7b1e2b,#f6d4da);
+  overflow:hidden;
+  color:white;
+  text-align:center;
+}
 
-  section {
-    min-height: 100vh;
-    padding: 40px 20px;
-    box-sizing: border-box;
-  }
+.section{
+  position:absolute;
+  width:100%;
+  height:100vh;
+  top:0;
+  left:100%;
+  opacity:0;
+  transition:all .8s ease;
+}
+.section.active{
+  left:0;
+  opacity:1;
+}
 
-  h1 {
-    color: #ffd1dc;
-    margin-top: 40px;
-  }
+h1{margin-top:40px;}
+p{font-size:18px;}
 
-  p {
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 20px auto;
-    color: #ffe6ec;
-  }
+#gameArea{height:70vh; position:relative;}
 
-  button {
-    padding: 12px 22px;
-    border: none;
-    border-radius: 25px;
-    background-color: #c9184a;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
+.kiss{
+  position:absolute;
+  font-size:30px;
+  cursor:pointer;
+}
 
-  input {
-    padding: 10px;
-    border-radius: 20px;
-    border: none;
-    text-align: center;
-    font-size: 16px;
-  }
+.envelope{
+  font-size:130px;
+  opacity:.4;
+}
 
-  .teddy {
-    font-size: 140px;
-    cursor: pointer;
-    animation: bounce 2s infinite;
-  }
+.envelope.unlocked{
+  opacity:1;
+  cursor:pointer;
+  animation:bounce 2s infinite;
+}
 
-  @keyframes bounce {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-18px); }
-  }
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+}
 
-  img {
-    width: 260px;
-    border-radius: 25px;
-    margin-top: 30px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-  }
+.photo{
+  width:260px;
+  border-radius:20px;
+  margin-top:20px;
+  transform:scale(0);
+  transition:transform .8s ease;
+}
+.photo.show{ transform:scale(1); }
 
-  .hidden {
-    display: none;
-  }
+.note{
+  max-width:650px;
+  margin:20px auto;
+  font-size:18px;
+  opacity:0;
+  transition:opacity 1s ease;
+}
+.note.show{ opacity:1; }
 
-  .float {
-    position: fixed;
-    bottom: -20px;
-    font-size: 22px;
-    animation: rise 6s linear infinite;
-    opacity: 0.8;
-  }
-
-  @keyframes rise {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-120vh); opacity: 0; }
-  }
+button{
+  padding:12px 24px;
+  border:none;
+  border-radius:25px;
+  background:#b3123b;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:15px;
+}
 </style>
 </head>
 
 <body>
 
-<section id="intro">
-  <h1>🧸 The Teddy That’s Only Yours, Only my Ro Rai's💌 🧸</h1>
-  <p>
-    A soft little teddy…  
-    holding something warm, something real,  
-    something that belongs only to us 💋
-  </p>
-  <div class="teddy" onclick="showPassword()">🧸</div>
-  <p>(Tap the teddy)</p>
-</section>
+<!-- PAGE 1 : GAME -->
+<div class="section active" id="page1">
+  <h1>Catch the Kisses 💋</h1>
+  <p>Collect all 20 kisses first…</p>
+  <div id="counter">0 / 20</div>
+  <div id="gameArea"></div>
+</div>
 
-<section id="passwordSection" class="hidden">
-  <h1>🔒 The Teddy Is Shy</h1>
+<!-- PAGE 2 : LOCKED ENVELOPE -->
+<div class="section" id="page2">
+  <h1>Wait… Not So Fast 😌</h1>
   <p>
-    Yeh awein kisi ke liye nahi khol jayega…  
-    Only for the one who knows its secret 💗
+  Before you open this,<br>
+  you have to send me a kiss picture.<br><br>
+  Otherwise I'll be sad 🥺
   </p>
-  <input type="password" id="password" placeholder="password">
-  <br>
-  <button onclick="checkPassword()">Open the Teddy</button>
-</section>
 
-<section id="labubuSection" class="hidden">
-  <h1>🧸 Labubu 🧸</h1>
-  <img src="IMG_0893.jpeg" alt="Labubu">
-  <p>
-    You gave it to me, and it instantly became more than just a teddy.
-  </p>
-  <button onclick="nextMessage()">Read More 💗</button>
-</section>
+  <button onclick="startTimer()">Okay, I sent it 💋</button>
 
-<section id="message1" class="hidden">
-  <h1>💌 From My Heart</h1>
-  <p>
-    Teddy Day is today, but this teddy lives in my heart since the day you gave me my ro.
-    <br><br>
-    It feels soft, warm, and comforting —  
-    just like the feeling jab apne diya tha mujhe yeh.
-  </p>
-  <button onclick="nextMessage2()">Keep Going 💋</button>
-</section>
+  <p id="timerText"></p>
 
-<section id="message2" class="hidden">
-  <h1>❤️ Always You</h1>
-  <p>
-    I miss you alot seriously watching other couples together its hard to live without you
-    but bass wait hai karti rahungi poori life🥺.
-    <br><br>
-    And I’ll always be grateful for this little piece of love.
-    <br><br>
-    Always remember janu that ur anku loves you and will always love you forever,
-    more and more than anyone else 💗🧸
-  </p>
-</section>
+  <div id="envelope" class="envelope">💌</div>
+</div>
+
+<!-- PAGE 3 : REVEAL -->
+<div class="section" id="page3">
+  <h1>Now You Can Open It 💗</h1>
+
+  <img src="IMG_0927.jpeg" class="photo" id="photo">
+
+  <div class="note" id="note">
+    happy kiss day loveee , hamesha yaad rakhna there is never gonna be a day i will get bored of ur kisses samaj ayi no matter what i need them everytime boht zyada khush hoti hon jab ap dete ho mujhe sach me its something i can never live without myy baby i loveyou so mych i wish u were here i woukd have eaten u only kisses deti💋💋🥺🥺🥺my dudu my pookie🧸🧸.
+  </div>
+</div>
 
 <script>
-  function showPassword() {
-    document.getElementById("passwordSection").classList.remove("hidden");
-    document.getElementById("passwordSection").scrollIntoView({behavior:"smooth"});
-  }
+/* GAME */
+let collected=0;
+const total=20;
+const gameArea=document.getElementById("gameArea");
 
-  function checkPassword() {
-    const pass = document.getElementById("password").value.toLowerCase();
-    if (pass === "labubu") {
-      document.getElementById("labubuSection").classList.remove("hidden");
-      document.getElementById("labubuSection").scrollIntoView({behavior:"smooth"});
-    } else {
-      alert("Not quite… try again 🧸");
+for(let i=0;i<total;i++){
+  const kiss=document.createElement("div");
+  kiss.className="kiss";
+  kiss.innerHTML="💋";
+  kiss.style.left=Math.random()*90+"vw";
+  kiss.style.top=Math.random()*70+"vh";
+
+  kiss.onclick=function(){
+    kiss.remove();
+    collected++;
+    document.getElementById("counter").innerText=collected+" / "+total;
+    if(collected===total) goToPage("page2");
+  };
+  gameArea.appendChild(kiss);
+}
+
+/* PAGE SWITCH */
+function goToPage(id){
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+/* TIMER LOCK SYSTEM */
+function startTimer(){
+  let time=120; // 2 minutes
+  const text=document.getElementById("timerText");
+
+  const countdown=setInterval(()=>{
+    let sec=time%60;
+    text.innerHTML="Unlocking in "+Math.floor(time/60)+":"+ (sec<10?"0":"")+sec;
+
+    time--;
+    if(time<0){
+      clearInterval(countdown);
+      unlockEnvelope();
     }
-  }
+  },1000);
+}
 
-  function nextMessage() {
-    document.getElementById("message1").classList.remove("hidden");
-    document.getElementById("message1").scrollIntoView({behavior:"smooth"});
-  }
+function unlockEnvelope(){
+  const env=document.getElementById("envelope");
+  env.classList.add("unlocked");
+  env.innerHTML="💌 Tap to Open";
 
-  function nextMessage2() {
-    document.getElementById("message2").classList.remove("hidden");
-    document.getElementById("message2").scrollIntoView({behavior:"smooth"});
-  }
-
-  setInterval(() => {
-    const el = document.createElement("div");
-    el.className = "float";
-    el.innerHTML = Math.random() > 0.5 ? "💋" : "❤️";
-    el.style.left = Math.random() * 100 + "vw";
-    el.style.animationDuration = (4 + Math.random() * 4) + "s";
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 7000);
-  }, 300);
+  env.onclick=function(){
+    goToPage("page3");
+    setTimeout(()=>photo.classList.add("show"),400);
+    setTimeout(()=>note.classList.add("show"),900);
+  };
+}
 </script>
 
 </body>
