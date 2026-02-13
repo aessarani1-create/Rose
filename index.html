@@ -1,216 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Kiss Day 💋</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#3a0a10,#6e1423,#a4161a);
-color:white;
-text-align:center;
-overflow-x:hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Center sections */
-.section{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:20px;
+body {
+  background: linear-gradient(120deg, #ffdde1, #ee9ca7);
+  color: #333;
+  overflow-x: hidden;
 }
 
-/* Buttons (kisses) */
-.kiss{
-font-size:40px;
-margin:12px;
-padding:18px 22px;
-border-radius:50%;
-border:none;
-background:#ff8fa3;
-cursor:pointer;
-transition:0.2s;
+section {
+  min-height: 100vh;
+  padding: 50px 20px;
+  display: none;
+  text-align: center;
+  animation: fadeIn 1.2s ease;
 }
 
-.kiss:active{
-transform:scale(0.85);
-background:#ff4d6d;
+section.active {
+  display: block;
 }
 
-/* Envelope */
-.envelope{
-width:220px;
-height:140px;
-background:linear-gradient(145deg,#fff,#f1f1f1);
-color:#333;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:10px;
-font-weight:bold;
-margin-top:25px;
-cursor:pointer;
-box-shadow:0 8px 20px rgba(0,0,0,0.3);
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
 }
 
-.hidden{display:none;}
-
-img{
-width:260px;
-border-radius:14px;
-margin-top:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
+p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
 
-/* Final message animation */
-.final{
-max-width:600px;
-animation:fadeUp 2s ease;
-line-height:1.6;
+button {
+  padding: 12px 26px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
 }
 
-@keyframes fadeUp{
-from{opacity:0; transform:translateY(30px);}
-to{opacity:1; transform:translateY(0);}
+button:hover {
+  transform: scale(1.08);
+  background: #ff1e4d;
 }
 
-/* Floating hearts only at end */
-.heart{
-position:fixed;
-color:#ffb3c1;
-font-size:18px;
-animation:float 4s linear forwards;
+video {
+  width: 280px;
+  max-width: 95%;
+  border-radius: 20px;
+  margin: 20px 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-@keyframes float{
-from{transform:translateY(100vh);}
-to{transform:translateY(-10vh);}
+audio {
+  margin-top: 15px;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
-<div id="intro" class="section">
-<h1>Happy Kiss Day 💋</h1>
-<p>You have to <b>catch all my kisses</b> first 😌</p>
-<p>Tap every kiss to collect them.</p>
-<button onclick="startGame()" class="kiss">Start 💋</button>
-</div>
+<!-- PAGE 1 : INTRO TEXT -->
+<section class="active" id="page1">
+  <h1>Happy Valentine’s Day ❤️</h1>
+  <p>
+    <!-- Happy anniversary and valentines babyy my Rooo im so happy with you and i hope we celebrate everyyear of us together 🥹🥹🫶🏻🫶🏻
+    Ur anku loves you❤️🌹.
+  </p>
+  <button onclick="goToPage(2)">Next 💌</button>
+</section>
 
-<!-- GAME -->
-<div id="game" class="section hidden">
-<h2>Catch Them All 😤</h2>
-<p>Collected: <span id="count">0</span>/12</p>
-<div id="kissArea"></div>
-</div>
+<!-- PAGE 2 : FIRST TIME YOU MET -->
+<section id="page2">
+  <h1>The First Time We Met ✨</h1>
+  <p>
+    <!-- 29 June 2025, the Day we met my best day with the best person of my life💋🧸
+    The day everything changed for me.
+  </p>
 
-<!-- ENVELOPE LOCK -->
-<div id="lock" class="section hidden">
-<h2>WAIT ✋</h2>
-<p>First send me a kiss picture…</p>
-<p>Then you may open this.</p>
-<p>Unlocking in <span id="timer">10</span> seconds ⏳</p>
+  <!-- VIDEO 1 -->
+  <video controls playsinline>
+    <source src="video1.MP4" type="video/mp4">
+  </video>
 
-<div class="envelope" onclick="openEnvelope()">
-Tap to Open 💌
-</div>
-</div>
+  <!-- VOICE 1 -->
+  <audio controls>
+    <source src="voice1.jpg.m4a" type="audio/mp4">
+  </audio>
 
-<!-- PHOTO -->
-<div id="photo" class="section hidden">
-<h2>Okay allowed 😌</h2>
-<p>Look what was waiting…</p>
-<img src="IMG_0927.jpeg">
-</div>
+  <br><br>
+  <button onclick="goToPage(3)">Next ➡️</button>
+</section>
 
-<!-- FINAL MESSAGE -->
-<div id="final" class="section hidden">
-<div class="final">
-<h1>I Love You 💋</h1>
-<p>
-happy kiss day loveee 💋<br><br>
-hamesha yaad rakhna there is never gonna be a day i will get bored of ur kisses samaj ayi  
-no matter what i need them everytime 🥺<br><br>
-boht zyada khush hoti hon jab ap dete ho mujhe sach me  
-its something i can never live without myy baby.<br><br>
-i loveyou so mych i wish u were here i woukd have eaten u only  
-kisses deti 💋💋🥺🥺🥺<br><br>
-my dudu my pookie 🧸🧸 
-RO AND ANKU FOREVER ♾️ 
-</p>
-</div>
-</div>
+<!-- PAGE 3 : LAST MEET BEFORE LONG DISTANCE -->
+<section id="page3">
+  <h1>Before Distance Started Again 🌍</h1>
+  <p>
+    <!-- I wish the time stopped and u were here with me forever ♾️ 🥺
+    The last time I held you before miles stood between us.
+  </p>
+
+  <!-- VIDEO 2 -->
+  <video controls playsinline>
+    <source src="video2.MP4" type="video/mp4">
+  </video>
+
+  <!-- VOICE 2 -->
+  <audio controls>
+    <source src="voice2.jpg.m4a" type="audio/mp4">
+  </audio>
+
+  <br><br>
+  <button onclick="goToPage(4)">Next 💕</button>
+</section>
+
+<!-- PAGE 4 : FINAL TEXT -->
+<section id="page4">
+  <h1>For You, Always 🥺❤️</h1>
+  <p>
+    <!-- Dear Ro rai mere sain mere janu mere love mere baby mere dudu i loveyou and i m soo grateful for y me bhagwan se yehi dua karti ke ap or me hamesha saath rahen ap ko har khushi mile jo ke me hon i lobeeeuu babuuu😘😘😘
+    I miss you so much💗.
+  </p>
+</section>
 
 <script>
-let collected=0;
-
-/* Start game */
-function startGame(){
-document.getElementById("intro").classList.add("hidden");
-document.getElementById("game").classList.remove("hidden");
-
-let area=document.getElementById("kissArea");
-
-/* Create big tappable kisses */
-for(let i=0;i<12;i++){
-let k=document.createElement("button");
-k.className="kiss";
-k.innerHTML="💋";
-
-k.onclick=function(){
-k.style.visibility="hidden";
-collected++;
-document.getElementById("count").innerText=collected;
-
-if(collected===12){
-document.getElementById("game").classList.add("hidden");
-document.getElementById("lock").classList.remove("hidden");
-startTimer();
-}
-};
-
-area.appendChild(k);
-}
-}
-
-/* Countdown */
-function startTimer(){
-let t=10;
-let interval=setInterval(()=>{
-t--;
-document.getElementById("timer").innerText=t;
-if(t<=0) clearInterval(interval);
-},1000);
-}
-
-/* Open envelope */
-function openEnvelope(){
-document.getElementById("lock").classList.add("hidden");
-document.getElementById("photo").classList.remove("hidden");
-
-setTimeout(()=>{
-document.getElementById("photo").classList.add("hidden");
-document.getElementById("final").classList.remove("hidden");
-startHearts();
-},3000);
-}
-
-/* Hearts animation at end */
-function startHearts(){
-setInterval(()=>{
-let h=document.createElement("div");
-h.className="heart";
-h.innerHTML="❤";
-h.style.left=Math.random()*100+"vw";
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),4000);
-},300);
+function goToPage(num) {
+  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById('page' + num).classList.add('active');
 }
 </script>
 
