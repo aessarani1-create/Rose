@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Cute Scrapbook ❤️</title>
+<title>Our Scrapbook ❤️</title>
 <style>
 body {
   margin:0;
@@ -17,12 +17,13 @@ body {
 section {
   padding:30px 20px;
   text-align:center;
-  min-height:100vh;
+  height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   box-sizing:border-box;
+  border-bottom:2px solid #ff4d88;
   opacity:0;
   transform: translateY(20px);
   transition: all 1s ease-out;
@@ -90,6 +91,17 @@ button:hover {background:#ff2e73;}
   margin-top:20px;
   font-family:'Comic Sans MS', cursive;
 }
+input {
+  padding:10px;
+  font-size:16px;
+  border-radius:8px;
+  border:1px solid #d6336c;
+  margin-top:10px;
+}
+#kisses {
+  font-size:24px;
+  margin-top:15px;
+}
 </style>
 </head>
 <body>
@@ -123,6 +135,14 @@ button:hover {background:#ff2e73;}
 </section>
 
 <section id="page5">
+<h2>Guess Who’s My Favorite Person? 💖</h2>
+<p>Type the correct name below and you’ll get some kisses 💋💋💋</p>
+<input type="text" id="favoriteInput" placeholder="Type here...">
+<button onclick="checkFavorite()">Submit</button>
+<p id="kisses"></p>
+</section>
+
+<section id="page6">
 <h2>Happy Anniversary! 🎉❤️</h2>
 <p id="finalMsg">I love you forever and always 💕</p>
 </section>
@@ -173,6 +193,17 @@ function explodeHearts(){
       heart.style.opacity = '0';
     },50);
     setTimeout(()=>{heart.remove()},1100);
+  }
+}
+
+// Favorite person quiz
+function checkFavorite(){
+  const val = document.getElementById('favoriteInput').value.trim().toUpperCase();
+  const kisses = document.getElementById('kisses');
+  if(val === "RO"){
+    kisses.innerText = "💋💋💋 Here are your kisses! 💋💋💋";
+  } else {
+    kisses.innerText = "Try again! 😘";
   }
 }
 
