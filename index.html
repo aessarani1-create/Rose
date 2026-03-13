@@ -84,14 +84,22 @@ input { padding:10px; font-size:16px; border-radius:8px; border:1px solid #d6336
 </div>
 </section>
 
-<section id="page4">
-<div class="love-container">
-<h2>A Little Love Letter 💗</h2>
-<p>My Janu, my Ro, my Dudu, my Pookie — these months with you have been the most beautiful part of my life. Even when we are far away, you make my days brighter and my heart happier. I can’t wait for the day we finally close this distance.</p>
-<button onclick="explodeHearts()">Click for Love ❤️</button>
-<div id="hearts"></div>
-</div>
-</section>
+.love-container {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:15px; 
+  max-width:500px;
+  margin-top:20px;
+}
+section {
+  height:100vh; /* ensures each section is its own "page" */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
 
 <section id="page5">
 <h2>Guess Who’s My Favorite Person? 💖</h2>
