@@ -3,122 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Pookie ❤️</title>
+<title>My Interactive Scrapbook ❤️</title>
 <style>
-body {margin:0;font-family:'Trebuchet MS',sans-serif;background:linear-gradient(135deg,#ffd6e7,#ffeef5);color:#333;text-align:center;scroll-behavior:smooth;}
-.hero {padding:80px 20px;color:#ff2f6d;}
-.hero h1 {font-size:48px;margin-bottom:10px;}
-.section {background:white;margin:30px auto;padding:30px;max-width:900px;border-radius:20px;box-shadow:0 10px 20px rgba(0,0,0,0.1);}
-h2 {color:#ff2f6d;margin-bottom:15px;}
-#timer {font-size:20px;font-weight:bold;color:#ff2f6d;margin-top:10px;}
-.gallery img {width:220px;margin:10px;border-radius:15px;transition:0.3s;}
+body, html {margin:0;padding:0;overflow:hidden;font-family:'Trebuchet MS',sans-serif;background:#ffeef5;}
+.container {display:flex;width:500vw;transition:transform 0.5s ease;height:100vh;}
+.page {flex:0 0 100vw;height:100vh;padding:40px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;}
+h1,h2,p {color:#ff2f6d;margin:10px;}
+.gallery img {width:200px;margin:10px;border-radius:15px;transition:0.3s;}
 .gallery img:hover {transform:scale(1.05);}
-button {padding:14px 25px;font-size:16px;background:#ff2f6d;border:none;color:white;border-radius:12px;cursor:pointer;}
+button {padding:14px 25px;font-size:16px;background:#ff2f6d;border:none;color:white;border-radius:12px;cursor:pointer;margin:10px;}
 button:hover {background:#e91e63;}
-.timeline {text-align:left;}
-.event {margin:20px 0;padding:15px;border-left:4px solid #ff2f6d;}
-.reasons {display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
-.reason {background:#ffe6ef;padding:10px;border-radius:10px;}
-.heart {position:fixed;top:100%;color:#ff2f6d;animation:float 6s linear infinite;}
-@keyframes float {0%{transform:translateY(0);}100%{transform:translateY(-120vh);}}
-footer {margin-top:40px;padding:20px;color:#ff2f6d;}
+.heart {position:absolute;color:#ff2f6d;animation:explode 0.8s ease-out forwards;pointer-events:none;}
+@keyframes explode {0%{transform:scale(0);opacity:1;}50%{transform:scale(1.5);opacity:1;}100%{transform:scale(1.8);opacity:0;}}
+.typewriter {border-right:3px solid #ff2f6d;white-space:nowrap;overflow:hidden;font-size:18px;}
+#countdown {font-size:24px;color:#ff2f6d;margin-top:10px;}
+iframe {display:none;}
 </style>
 </head>
 <body>
 
-<div class="hero">
-<h1>13 Months With My Pookie ❤️</h1>
-<p>Started talking: 14 December 2024</p>
-<p>Started dating: 14 February 2025</p>
-<div id="timer"></div>
-</div>
+<!-- YouTube Music Embed -->
+<iframe id="ytMusic" src="https://www.youtube.com/embed/8SYPKQMW_2Q?autoplay=1&loop=1&playlist=8SYPKQMW_2Q" allow="autoplay"></iframe>
 
-<div class="section">
-<h2>Our Story 💞</h2>
-<p>Everything started on <b>14 December 2024</b>. A simple conversation slowly turned into something beautiful. Then on <b>14 February 2025</b> we officially started dating. Since then every 14th has become our special little day. Each moment has been a treasure and every memory we make together is my favorite.</p>
-</div>
+<div class="container" id="container">
 
-<div class="section">
-<h2>Waiting for June 💌</h2>
-<p>Every day I think about the moment June comes and we can finally meet again. The distance feels hard sometimes, but knowing that soon we will be together makes me so happy. I am counting the days, minutes, and seconds until I can hold you in my arms. 💖</p>
-</div>
+    <!-- Page 1 -->
+    <div class="page" style="background:linear-gradient(135deg,#ffd6e7,#ffeef5);">
+        <h1>13 Months With My Pookie ❤️</h1>
+        <p>Started talking: 14 Dec 2024 | Started dating: 14 Feb 2025</p>
+        <div id="countdown">Countdown to June: </div>
+    </div>
 
-<div class="section">
-<h2>Our Scrapbook 📖</h2>
-<div class="timeline">
-<div class="event"><b>14 December 2024</b> — We started talking 💬</div>
-<div class="event"><b>14 February 2025</b> — We started dating 💞</div>
-<div class="event"><b>Every 14th</b> — Monthly little anniversary ❤️</div>
-<div class="event"><b>Waiting for June</b> — Our hearts counting the days ⏳</div>
-</div>
-</div>
+    <!-- Page 2 -->
+    <div class="page" style="background:#fff0f5;">
+        <h2>Waiting for June 💌</h2>
+        <p class="typewriter" id="msg1"></p>
+        <p class="typewriter" id="msg2"></p>
+    </div>
 
-<div class="section">
-<h2>To My Favorite Person 💌</h2>
-<p>To my <b>Janu</b>, my <b>Ro</b>, my <b>Dudu</b>, my <b>Pookie</b>, you make my life brighter every day. You make me laugh, feel safe, and loved. Every moment with you, even through distance, feels magical. I can't wait to see your smile in person. ❤️</p>
-</div>
+    <!-- Page 3 -->
+    <div class="page" style="background:#ffe6ef;">
+        <h2>Our Scrapbook 📖</h2>
+        <div class="gallery">
+            <img src="IMG_2475.jpeg">
+            <img src="IMG_1753.jpeg">
+            <img src="IMG_1755.jpeg">
+        </div>
+    </div>
 
-<div class="section">
-<h2>Our Memories 📸</h2>
-<div class="gallery">
-<img src="IMG_2475.jpeg">
-<img src="IMG_1753.jpeg">
-<img src="IMG_1755.jpeg">
-</div>
-</div>
+    <!-- Page 4 -->
+    <div class="page" style="background:#fff0f5;">
+        <h2>Love Letter 💌</h2>
+        <p class="typewriter" id="msg3"></p>
+        <button onclick="explodeHeart()">Click Me for Love ❤️</button>
+    </div>
 
-<div class="section">
-<h2>100 Reasons I Love You 💗</h2>
-<div class="reasons">
-<div class="reason">You make me smile</div>
-<div class="reason">You make me laugh</div>
-<div class="reason">You listen to me</div>
-<div class="reason">You understand me</div>
-<div class="reason">You care about me</div>
-<div class="reason">You are my safe place</div>
-<div class="reason">You make life exciting</div>
-<div class="reason">You support me</div>
-<div class="reason">You always stay</div>
-<div class="reason">You are my favorite person</div>
 </div>
-</div>
-
-<div class="section">
-<h2>Love Quiz 🎮</h2>
-<p>Who is the cutest person?</p>
-<button onclick="quiz()">You</button>
-<button onclick="quiz()">Also You</button>
-<p id="quizResult"></p>
-</div>
-
-<div class="section">
-<h2>Love Letter 💌</h2>
-<p>My Pookie, these 13 months with you have been the most beautiful part of my life. Every moment we talk, laugh, or spend time together means so much to me. I don't know what the future holds, but I know one thing — I want you in it. Forever yours ❤️</p>
-</div>
-
-<div class="section">
-<h2>Click For A Surprise 🎁</h2>
-<button onclick="love()">Click Me</button>
-<p id="secret"></p>
-</div>
-
-<footer>Made with ❤️ for my Janu</footer>
 
 <script>
-let startDate = new Date("February 14, 2025 00:00:00").getTime();
-function updateTimer(){
-let now = new Date().getTime();
-let distance = now-startDate;
-let days=Math.floor(distance/(1000*60*60*24));
-let hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-let minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-document.getElementById("timer").innerHTML="Together for ❤️ "+days+" days "+hours+" hours "+minutes+" minutes";
+// Swipable pages
+let container = document.getElementById('container');
+let currentPage = 0;
+document.body.addEventListener('wheel', e => {
+    if(e.deltaY > 0) currentPage = Math.min(currentPage+1, container.children.length-1);
+    else currentPage = Math.max(currentPage-1, 0);
+    container.style.transform = `translateX(${-100*currentPage}vw)`;
+});
+
+// Typewriter
+function typeWriter(id,text,delay){
+    let i=0, el=document.getElementById(id);
+    function typing(){
+        if(i<text.length){el.innerHTML+=text.charAt(i);i++;setTimeout(typing,delay);}
+    }
+    typing();
 }
-setInterval(updateTimer,1000);
-function love(){document.getElementById("secret").innerHTML="I love you more every single day, my Pookie ❤️";}
-function quiz(){document.getElementById("quizResult").innerHTML="Correct answer: YOU ❤️";}
-function createHeart(){let heart=document.createElement("div");heart.className="heart";heart.innerHTML="❤️";heart.style.left=Math.random()*100+"vw";heart.style.fontSize=(Math.random()*20+10)+"px";document.body.appendChild(heart);setTimeout(()=>{heart.remove();},6000);}
-setInterval(createHeart,300);
+
+typeWriter("msg1","Every day I think about June coming and us finally meeting soon.",50);
+typeWriter("msg2","The distance feels hard, but just thinking of you keeps me smiling! ❤️",50);
+typeWriter("msg3","My Pookie, these 13 months with you have been the most beautiful part of my life. I can’t wait to hold you.",50);
+
+// Countdown
+function updateCountdown(){
+    let now=new Date(), june=new Date(now.getFullYear(),5,1);
+    if(now>june) june.setFullYear(june.getFullYear()+1);
+    let diff=june-now;
+    let days=Math.floor(diff/(1000*60*60*24));
+    let hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    let mins=Math.floor((diff%(1000*60*60))/(1000*60));
+    document.getElementById('countdown').innerText=`Countdown to June: ${days}d ${hours}h ${mins}m`;
+}
+setInterval(updateCountdown,1000);
+
+// Heart explosion
+function explodeHeart(){
+    for(let i=0;i<15;i++){
+        let heart=document.createElement('div');
+        heart.className='heart';
+        heart.innerText='❤️';
+        heart.style.left=Math.random()*100+'vw';
+        heart.style.top=Math.random()*100+'vh';
+        heart.style.fontSize=(Math.random()*40+20)+'px';
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(),800);
+    }
+}
+
 </script>
 
 </body>
