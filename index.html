@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Little Scrapbook ❤️</title>
+<title>Our Scrapbook ❤️</title>
 <style>
 body{
 margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#ffeaf3;
+font-family:'Trebuchet MS', sans-serif;
+background:#ffeef5;
 color:#d6336c;
 line-height:1.6;
+scroll-behavior:smooth;
 }
 section{
 padding:40px 20px;
@@ -22,19 +23,23 @@ justify-content:center;
 align-items:center;
 box-sizing:border-box;
 }
-h1{font-size:28px;margin-bottom:10px;}
-h2{font-size:22px;margin-bottom:10px;}
-p{font-size:16px;max-width:500px;margin:auto;}
-.gallery{margin-top:20px;}
+h1{font-size:28px;margin-bottom:15px;}
+h2{font-size:22px;margin-bottom:15px;}
+p{font-size:18px;max-width:500px;margin:auto;}
+.gallery{margin-top:20px;display:flex;flex-direction:column;align-items:center;}
 .gallery img{width:85%;max-width:300px;border-radius:14px;margin:10px 0;}
 button{margin-top:20px;padding:12px 24px;font-size:16px;border:none;border-radius:10px;background:#ff4d88;color:white;cursor:pointer;}
 button:hover{background:#ff2e73;}
-#countdown{font-weight:bold;margin-top:10px;font-size:18px;}
-#hearts{font-size:28px;margin-top:20px;display:none;}
+#countdown{font-weight:bold;margin-top:15px;font-size:20px;}
+iframe.music{width:1px;height:1px;border:none;position:fixed;top:0;left:0;}
 </style>
 </head>
 <body>
 
+<!-- Background music -->
+<iframe class="music" src="https://www.youtube.com/embed/8SYPKQMW_2Q?autoplay=1&loop=1&playlist=8SYPKQMW_2Q&mute=0" allow="autoplay"></iframe>
+
+<!-- Page 1 -->
 <section>
 <h1>13 Months With My Pookie ❤️</h1>
 <p>We started talking on 14 December 2024 and started dating on 14 February 2025.</p>
@@ -42,11 +47,13 @@ button:hover{background:#ff2e73;}
 <div id="countdown"></div>
 </section>
 
+<!-- Page 2 -->
 <section>
 <h2>Waiting for June 💌</h2>
 <p>I’m waiting for June to come so we can finally meet again. Distance is hard sometimes, but loving you makes it worth everything. Every day I imagine the moment I finally get to see you.</p>
 </section>
 
+<!-- Page 3 -->
 <section>
 <h2>Our Memories 📷</h2>
 <div class="gallery">
@@ -56,18 +63,15 @@ button:hover{background:#ff2e73;}
 </div>
 </section>
 
+<!-- Page 4 -->
 <section>
 <h2>A Little Love Letter 💗</h2>
 <p>My Janu, my Ro, my Dudu, my Pookie — these months with you have been the most beautiful part of my life. Even when we are far away, you make my days brighter and my heart happier. I can’t wait for the day we finally close this distance.</p>
-<button onclick="showLove()">Click for Love ❤️</button>
-<div id="hearts">❤️ ❤️ ❤️ ❤️ ❤️</div>
+<button onclick="explodeHearts()">Click for Love ❤️</button>
 </section>
 
 <script>
-function showLove(){
-document.getElementById("hearts").style.display="block";
-}
-
+// Countdown
 function updateCountdown(){
 let now = new Date();
 let june = new Date(now.getFullYear(),5,1);
@@ -79,6 +83,29 @@ document.getElementById("countdown").innerText = "Countdown to June: " + days + 
 }
 updateCountdown();
 setInterval(updateCountdown,1000);
+
+// Heart explosion
+function explodeHearts(){
+for(let i=0;i<20;i++){
+  let heart = document.createElement('div');
+  heart.innerText = '❤️';
+  heart.style.position = 'fixed';
+  heart.style.left = (Math.random()*80 + 10)+'vw';
+  heart.style.top = (Math.random()*80 + 10)+'vh';
+  heart.style.fontSize = (Math.random()*40 + 20)+'px';
+  heart.style.pointerEvents = 'none';
+  heart.style.opacity = '1';
+  heart.style.transition = 'all 1s ease-out';
+  document.body.appendChild(heart);
+  
+  setTimeout(()=>{
+    heart.style.top = (Math.random()*30)+'vh';
+    heart.style.opacity = '0';
+  },50);
+  
+  setTimeout(()=>{heart.remove()},1100);
+}
+}
 </script>
 
 </body>
