@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Pookie ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', sans-serif;
+            background: linear-gradient(135deg,#ffd6e7,#ffeef5);
+            text-align: center;
+            color: #333;
+        }
+        .hero {
+            padding: 80px 20px;
+            color: #ff2f6d;
+        }
+        .hero h1 {
+            font-size: 48px;
+        }
+        .section {
+            background: white;
+            margin: 30px auto;
+            padding: 30px;
+            max-width: 900px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #ff2f6d;
+        }
+        #timer {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff2f6d;
+            margin-top: 10px;
+        }
+        .gallery img {
+            width: 220px;
+            margin: 10px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        button {
+            padding: 14px 25px;
+            font-size: 16px;
+            background: #ff2f6d;
+            border: none;
+            color: white;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #e91e63;
+        }
+        .timeline {
+            text-align: left;
+        }
+        .event {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #ff2f6d;
+        }
+        .reasons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .reason {
+            background: #ffe6ef;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .heart {
+            position: fixed;
+            top: 100%;
+            color: #ff2f6d;
+            animation: float 6s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-120vh); }
+        }
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            color: #ff2f6d;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>13 Months With My Pookie ❤️</h1>
+        <p>Started talking: 14 December 2024</p>
+        <p>Started dating: 14 February 2025</p>
+        <div id="timer"></div>
+    </div>
+
+    <div class="section">
+        <h2>Our Story 💞</h2>
+        <p>Everything started on <b>14 December 2024</b>. A simple conversation slowly turned into something beautiful. Then on <b>14 February 2025</b> we officially started dating. Since then every 14th has become our special little day.</p>
+    </div>
+
+    <div class="section">
+        <h2>Our Scrapbook 📖</h2>
+        <div class="timeline">
+            <div class="event"><b>14 December 2024</b> — We started talking 💬</div>
+            <div class="event"><b>14 February 2025</b> — We started dating 💞</div>
+            <div class="event"><b>Every 14th</b> — Our monthly little anniversary ❤️</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>To My Favorite Person 💌</h2>
+        <p>To my <b>Janu</b>, my <b>Ro</b>, my <b>Dudu</b>, my <b>Pookie</b>, you make my life brighter every day. You make me laugh, feel safe, and feel loved. I’m so lucky to have you.</p>
+    </div>
+
+    <div class="section">
+        <h2>Our Memories 📸</h2>
+        <div class="gallery">
+            <img src="photo1.jpg">
+            <img src="photo2.jpg">
+            <img src="photo3.jpg">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>100 Reasons I Love You 💗</h2>
+        <div class="reasons">
+            <div class="reason">You make me smile</div>
+            <div class="reason">You make me laugh</div>
+            <div class="reason">You listen to me</div>
+            <div class="reason">You understand me</div>
+            <div class="reason">You care about me</div>
+            <div class="reason">You are my safe place</div>
+            <div class="reason">You make life exciting</div>
+            <div class="reason">You support me</div>
+            <div class="reason">You always stay</div>
+            <div class="reason">You are my favorite person</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Love Quiz 🎮</h2>
+        <p>Who is the cutest person?</p>
+        <button onclick="quiz()">You</button>
+        <button onclick="quiz()">Also You</button>
+        <p id="quizResult"></p>
+    </div>
+
+    <div class="section">
+        <h2>Love Letter 💌</h2>
+        <p>My Pookie, these 13 months with you have been the most beautiful part of my life. Every moment we talk, laugh, or spend time together means so much to me. I don't know what the future holds, but I know one thing — I want you in it. Forever yours ❤️</p>
+    </div>
+
+    <div class="section">
+        <h2>Click For A Surprise 🎁</h2>
+        <button onclick="love()">Click Me</button>
+        <p id="secret"></p>
+    </div>
+
+    <footer>Made with ❤️ for my Janu</footer>
+
+    <script>
+        let startDate = new Date("February 14, 2025 00:00:00").getTime();
+        function updateTimer() {
+            let now = new Date().getTime();
+            let distance = now - startDate;
+            let days = Math.floor(distance/(1000*60*60*24));
+            let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+            let minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+            document.getElementById("timer").innerHTML = "Together for ❤️ " + days + " days " + hours + " hours " + minutes + " minutes";
+        }
+        setInterval(updateTimer,1000);
+
+        function love() {
+            document.getElementById("secret").innerHTML = "I love you more every single day, my Pookie ❤️";
+        }
+
+        function quiz() {
+            document.getElementById("quizResult").innerHTML = "Correct answer: YOU ❤️";
+        }
+
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random()*100 + "vw";
+            heart.style.fontSize = (Math.random()*20+10) + "px";
+            document.body.appendChild(heart);
+            setTimeout(()=>{heart.remove();},6000);
+        }
+        setInterval(createHeart,300);
+    </script>
+</body>
+</html>
