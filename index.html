@@ -3,52 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interactive Scrapbook ❤️</title>
+<title>My Scrapbook ❤️</title>
 <style>
-html, body {margin:0; padding:0; font-family:'Trebuchet MS',sans-serif; background:#1c1c2e; color:#f0f0f0; overflow:hidden;}
-.container {display:flex; width:400vw; transition: transform 0.6s ease; height:100vh;}
-section {flex:0 0 100vw; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px; box-sizing:border-box; scroll-snap-align:start;}
-h1,h2,p {margin:10px; color:#f0f0f0;}
-button {padding:14px 25px; font-size:16px; background:#ff5e5e; border:none; color:white; border-radius:12px; cursor:pointer; margin:10px;}
-button:hover {background:#ff1f1f;}
-.heart {position:absolute; color:#ff5e5e; animation:explode 0.8s ease-out forwards; pointer-events:none;}
+html, body {margin:0; padding:0; font-family:'Trebuchet MS',sans-serif; overflow:hidden; background:#000;}
+.container {display:flex; width:400vw; transition:transform 0.6s ease; height:100vh;}
+section {flex:0 0 100vw; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; box-sizing:border-box; padding:30px; position:relative;}
+h1,h2,p {margin:10px; color:#FFD700;}
+button {padding:12px 25px; font-size:16px; background:#FFD700; border:none; color:#000; border-radius:10px; cursor:pointer; margin:10px;}
+button:hover {background:#FFC300;}
+.heart {position:absolute; color:#FFD700; animation:explode 0.8s ease-out forwards; pointer-events:none;}
 @keyframes explode {0%{transform:scale(0);opacity:1;}50%{transform:scale(1.5);opacity:1;}100%{transform:scale(1.8);opacity:0;}}
-.typewriter {border-right:3px solid #ff5e5e; white-space:nowrap; overflow:hidden; font-size:18px;}
-#countdown {font-size:24px;color:#ff5e5e; margin-top:10px;}
-.gallery img {width:200px;margin:10px;border-radius:15px; transition:0.3s;}
+.typewriter {border-right:3px solid #FFD700; white-space:nowrap; overflow:hidden; font-size:18px;}
+#countdown {font-size:20px; color:#FFD700; margin-top:10px;}
+.gallery img {width:180px; margin:10px; border-radius:15px; transition:0.3s;}
 .gallery img:hover {transform:scale(1.05);}
-#leftBtn,#rightBtn {position:fixed; top:50%; transform:translateY(-50%); font-size:36px; color:#ff5e5e; background:none; border:none; cursor:pointer; z-index:10;}
+#leftBtn, #rightBtn {position:fixed; top:50%; transform:translateY(-50%); font-size:36px; color:#FFD700; background:none; border:none; cursor:pointer; z-index:10;}
 #leftBtn {left:10px;} #rightBtn {right:10px;}
 iframe.music {width:1px; height:1px; border:none; position:fixed; top:0; left:0;}
 </style>
 </head>
 <body>
 
-<!-- YouTube background music -->
+<!-- YouTube Music -->
 <iframe class="music" src="https://www.youtube.com/embed/8SYPKQMW_2Q?autoplay=1&loop=1&playlist=8SYPKQMW_2Q&mute=0" allow="autoplay"></iframe>
 
-<!-- Flipbook arrow buttons -->
+<!-- Flipbook arrows -->
 <button id="leftBtn">&#8592;</button>
 <button id="rightBtn">&#8594;</button>
 
 <div class="container" id="container">
 
 <!-- Page 1 -->
-<section style="background:linear-gradient(135deg,#1c1c2e,#2e2e4f);">
+<section style="background:#000000;">
 <h1>13 Months With My Pookie ❤️</h1>
 <p>Started talking: 14 Dec 2024 | Started dating: 14 Feb 2025</p>
 <div id="countdown">Countdown to June: </div>
 </section>
 
 <!-- Page 2 -->
-<section style="background:#2b2b40;">
+<section style="background:#111111;">
 <h2>Waiting for June 💌</h2>
 <p class="typewriter" id="msg1"></p>
 <p class="typewriter" id="msg2"></p>
 </section>
 
 <!-- Page 3 -->
-<section style="background:#1f1f35;">
+<section style="background:#222222;">
 <h2>Our Scrapbook 📖</h2>
 <div class="gallery">
 <img src="IMG_2475.jpeg">
@@ -58,7 +58,7 @@ iframe.music {width:1px; height:1px; border:none; position:fixed; top:0; left:0;
 </section>
 
 <!-- Page 4 -->
-<section style="background:#2b2b40;">
+<section style="background:#111111;">
 <h2>Love Letter 💌</h2>
 <p class="typewriter" id="msg3"></p>
 <button onclick="explodeHeart()">Click Me for Love ❤️</button>
@@ -71,7 +71,6 @@ iframe.music {width:1px; height:1px; border:none; position:fixed; top:0; left:0;
 let container = document.getElementById('container');
 let currentPage = 0;
 const totalPages = container.children.length;
-
 document.getElementById('leftBtn').addEventListener('click',()=>{
     currentPage = Math.max(currentPage-1,0);
     container.style.transform = `translateX(${-100*currentPage}vw)`;
@@ -117,5 +116,6 @@ setTimeout(()=>heart.remove(),800);
 }
 }
 </script>
+
 </body>
 </html>
