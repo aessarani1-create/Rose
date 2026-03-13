@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Scrapbook ❤️</title>
+<title>Our Cute Scrapbook ❤️</title>
 <style>
 body {
   margin:0;
@@ -32,84 +32,41 @@ section.visible {
   opacity:1;
   transform: translateY(0);
 }
-h1 {
-  font-size:30px;
-  margin-bottom:10px;
-  font-family:'Comic Sans MS', cursive;
-}
-h2 {
-  font-size:24px;
-  margin-bottom:10px;
-  font-family:'Comic Sans MS', cursive;
-}
-p {
-  font-size:18px;
-  max-width:500px;
-  margin:auto;
-}
-.gallery {
-  margin-top:20px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-.gallery img {
-  width:85%;
-  max-width:300px;
-  border-radius:14px;
-  margin:10px 0;
-  transform: scale(0.95);
-  transition: transform 0.5s ease;
-}
-.gallery img.visible {
-  transform: scale(1);
-}
-button {
-  margin-top:20px;
-  padding:12px 24px;
-  font-size:16px;
-  border:none;
-  border-radius:10px;
-  background:#ff4d88;
-  color:white;
-  cursor:pointer;
-}
-button:hover {background:#ff2e73;}
-#countdown {
+h1 { font-size:30px; margin-bottom:10px; font-family:'Comic Sans MS', cursive; }
+h2 { font-size:24px; margin-bottom:10px; font-family:'Comic Sans MS', cursive; }
+p { font-size:18px; max-width:500px; margin:auto; text-align:left; }
+span.highlight {
   font-weight:bold;
-  margin-top:10px;
-  font-size:20px;
+  background:#ffd1e6;
+  padding:2px 6px;
+  border-radius:4px;
+  color:#d6336c;
 }
-#hearts {
-  font-size:28px;
-  margin-top:20px;
-  position:relative;
-}
-#finalMsg {
-  font-size:26px;
-  font-weight:bold;
-  margin-top:20px;
-  font-family:'Comic Sans MS', cursive;
-}
-input {
-  padding:10px;
-  font-size:16px;
-  border-radius:8px;
-  border:1px solid #d6336c;
-  margin-top:10px;
-}
-#kisses {
-  font-size:24px;
-  margin-top:15px;
-}
+.gallery { margin-top:20px; display:flex; flex-direction:column; align-items:center; }
+.gallery img { width:85%; max-width:300px; border-radius:14px; margin:10px 0; transform: scale(0.95); transition: transform 0.5s ease; }
+.gallery img.visible { transform: scale(1); }
+button { margin-top:20px; padding:12px 24px; font-size:16px; border:none; border-radius:10px; background:#ff4d88; color:white; cursor:pointer; }
+button:hover { background:#ff2e73; }
+#countdown { font-weight:bold; margin-top:10px; font-size:20px; }
+#hearts { font-size:28px; margin-top:20px; position:relative; }
+#finalMsg { font-size:26px; font-weight:bold; margin-top:20px; font-family:'Comic Sans MS', cursive; }
+input { padding:10px; font-size:16px; border-radius:8px; border:1px solid #d6336c; margin-top:10px; }
+#kisses { font-size:24px; margin-top:15px; }
+.love-container { display:flex; flex-direction:column; justify-content:center; align-items:center; gap:15px; max-width:500px; margin-top:20px; }
+#transcript { max-width:500px; margin:auto; font-size:18px; line-height:1.5; text-align:left; }
+#transcript p { margin:10px 0; }
 </style>
 </head>
 <body>
 
 <section id="page1">
 <h1>13 Months With My Pookie ❤️</h1>
-<p>We started talking on 14 December 2024 and started dating on 14 February 2025.</p>
-<p>Every 14th reminds me how lucky I am to have you.</p>
+<div id="transcript">
+<p><span class="highlight">December 14, 2024:</span> The day we first started talking… I knew something special was about to begin! 💕</p>
+<p><span class="highlight">February 14, 2025:</span> Our first date! My heart was so full of joy ❤️</p>
+<p>Every month with you is a new adventure, a new memory, and a million tiny moments I treasure ✨</p>
+<p><span class="highlight">You are my Pookie, my Ro, my Dudu… my everything 💗</span></p>
+</div>
 <div id="countdown"></div>
 </section>
 
@@ -128,10 +85,12 @@ input {
 </section>
 
 <section id="page4">
+<div class="love-container">
 <h2>A Little Love Letter 💗</h2>
 <p>My Janu, my Ro, my Dudu, my Pookie — these months with you have been the most beautiful part of my life. Even when we are far away, you make my days brighter and my heart happier. I can’t wait for the day we finally close this distance.</p>
 <button onclick="explodeHearts()">Click for Love ❤️</button>
 <div id="hearts"></div>
+</div>
 </section>
 
 <section id="page5">
